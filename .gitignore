@@ -1,3 +1,11 @@
+### Project specific ###
+
+measurements/
+
+.vscode/
+
+### Python defaults from github ###
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
