@@ -1,2 +1,2 @@
 # dtweb-measurements
-Pythons scripts for measuring the performance of DTWeb
+Python scripts for measuring the performance of DTWeb
