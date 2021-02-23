@@ -22,7 +22,7 @@ width = int(sys.argv[2])
 # Constants
 REGISTRY = 'https://dtid.org/'                      # Base URL of DTID registry
 DTID_BASE = REGISTRY \
-    + datetime.now().strftime('%Y-%m-%d_%H:%M:%S-') # Base URL of DTIDs   
+    + datetime.now().strftime('%Y-%m-%d_%H:%M:%S_') # Base URL of DTIDs   
 
 # Create a tree of DTs in advance so that adding parents and children is a bit easier
 tree = {}
