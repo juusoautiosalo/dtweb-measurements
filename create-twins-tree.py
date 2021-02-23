@@ -55,7 +55,7 @@ def create_twins(current, parent):
     for dtid in current:
         print('Creating DT doc for: ' + dtid)
         doc = {}
-        doc['dtid'] = dtid
+        doc['dt-id'] = dtid
         doc['hosting-iri'] = 'autoassign'
         doc['name'] = generate_slug().replace('-', ' ').title()
         if parent == 'http://d-t.fi/juuso':
@@ -66,7 +66,7 @@ def create_twins(current, parent):
         # Add parent
         doc['relations'] = []
         doc['relations'].append({})
-        doc['relations'][0]['dtid'] = parent
+        doc['relations'][0]['dt-id'] = parent
         doc['relations'][0]['relationType'] = 'parent'
 
         # Add children
@@ -74,7 +74,7 @@ def create_twins(current, parent):
             for i in range(len(current[dtid])):
                 for child in current[dtid][i]:
                     doc['relations'].append({})
-                    doc['relations'][i+1]['dtid'] = child
+                    doc['relations'][i+1]['dt-id'] = child
                     doc['relations'][i+1]['relationType'] = 'child'
 
         # Create folder for the new twin
