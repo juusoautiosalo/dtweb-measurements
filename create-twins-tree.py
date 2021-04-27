@@ -1,12 +1,16 @@
 """ Creates a tree of digital twins.
 
-The twin documents will be saved as index.yaml files to 
+Creates digital twin documents to a new timestamped folder named "twintree-<timestamp>".
+Each twin document is created in its own folder as "index.yaml" file.
 
 Arguments:
-    1: The depth of the tree.
-        Must be even number.
+    1: The depth of the tree, i.e. the number of relationships from highest to lowest.
+        Must be at least one (1).
     2: The width of the tree, i.e. one twin will have this many children
-        Must be even number
+        Must be at least one (1).
+
+Usage example:
+    python3 create-twins-tree.py 3 3
 
 """
 
