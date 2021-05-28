@@ -2,3 +2,11 @@ dtweb==0.0.1
 PyYAML==5.4.1
 lorem==0.1.1
 coolname==1.1.0
+asks==2.4.12
+pandas==1.2.4
+matplotlib==3.4.1
+psutil==5.8.0
+
+# Optional:
+
+# SciencePlots==1.0.7

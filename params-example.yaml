@@ -1,0 +1,55 @@
+# This is an example parameter file
+
+# Copy and rename this file to params.yaml if you want to make modifications that are not tracked by git
+
+foldername: test_runs # The folder in which results are saved. (New folder is created if it does not exist.)
+registry_measurement:
+  # Decide whether to run measurement or not: True or False (also 1 or 0)
+  run: True
+  params:
+    samples: 10
+    timeout_registry: 2.0
+    timeout_base: 1.0
+    # Warning: too short timeout leads to error if any of the registries get zero succesful fetches
+    dtids:
+    - http://d-t.fi/4f087f40-0e2e-4902-b344-72568c23d185
+    - https://tinyurl.com/d419ee4a-8eeb-4a08-b517
+    - https://w3id.org/twins/f7012e2b-d1f8-4e50-b97b-8a93bc97a218
+    - https://urly.fi/24fr
+    - http://bot.fi/3lvz
+    - https://users.aalto.fi/~autiosj1/dtid/98f66b1d-0063-419d-8d98-9c706be5a685
+    - https://bit.ly/3bJOcO9
+    - https://dtid.org/c29565b9-3b5d-430c-8586-674a980b6aa5
+network_measurements: # Dictionary of measurement runs
+  fastest: # Name of the measurement run. Must be unique among other names.
+    run: True
+    params:
+      samples: 10
+      timeout_registry: 2.0
+      timeout_base: 1.0
+      dtids:
+      - http://d-t.fi/6bd8a492-c53a-47e4-9869-44b6cfecb406
+  features: # Name of the measurement run. Must be unique among other names.
+    run: True
+    params:
+      samples: 10
+      timeout_registry: 2.0
+      timeout_base: 1.0
+      dtids:
+      - https://dtid.org/c534df86-f9a7-4467-a8b1-0ffbee32e8c8
+  slowest: # Name of the measurement run. Must be unique among other names.
+    run: True
+    params:
+      samples: 10
+      timeout_registry: 2.0
+      timeout_base: 1.0
+      dtids:
+      - https://w3id.org/twins/775b1b0d-1083-44f2-8c77-ee5782ee5842
+  not-to-be-run: # Name of the measurement run. Must be unique among other names.
+    run: False
+    params:
+      samples: 10
+      timeout_registry: 2.0
+      timeout_base: 1.0
+      dtids:
+      - http://d-t.fi/6bd8a492-c53a-47e4-9869-44b6cfecb406

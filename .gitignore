@@ -1,6 +1,10 @@
 ### Project specific ###
 
 measurements/
+twintree-*/
+scrap/
+
+params.yaml
 
 .vscode/
 

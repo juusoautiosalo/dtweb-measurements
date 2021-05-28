@@ -31,12 +31,24 @@ pip install -r requirements.txt
 ## Usage
 
 Run the scripts with python through a terminal.
+Current directory must be this folder
 
 ### Examples
 
 Measure time for fetching the hosting URL of an example DTID.
 ```sh
 python3 measure.py 
+```
+
+Run and plot a series of measurements defined in `params.yaml` file
+> If `params.yaml` doesn't exist, `params-example.yaml` is used instead
+```sh
+python3 run_measurements.py 
+```
+
+Replot the latest measurement
+```sh
+python3 replot_latest.py 
 ```
 
 Create a twin tree with depth 3 and width 2
