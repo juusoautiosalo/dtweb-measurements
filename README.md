@@ -3,16 +3,13 @@ Python scripts for measuring the performance of Digital Twin Web servers and reg
 As Digital Twin Web standards are still under development,
 [Twinbase](https://github.com/twinbase/twinbase) servers are used for example measurements.
 
-## Install
+## Operating system
+Any Linux terminal should work directly or with minor modifications.
 
-<details>
-<summary>Environment</summary>
-
-- WSL2
-- Python 3.8.5
+Scripts were developed and tested on Windows 10 with [WSL2](https://www.omgubuntu.co.uk/how-to-install-wsl2-on-windows-10) terminal (4.19.84-microsoft-standard) with Python 3.8.5
   - To install python virtual environment: `sudo apt-get install python3-venv`
 
-</details>
+## Install
 
 Clone source code
 ```sh
