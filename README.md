@@ -1,5 +1,7 @@
 # dtweb-measurements
-Python scripts for measuring the performance of DTWeb
+Python scripts for measuring the performance of Digital Twin Web servers and registries.
+As Digital Twin Web standards are still under development,
+[Twinbase](https://github.com/twinbase/twinbase) servers are used for example measurements.
 
 ## Install
 
@@ -23,15 +25,17 @@ python3 -m venv env
 source env/bin/activate
 ```
 
-Install with pip
-```sh
-pip install -r requirements.txt
-```
-
 > To deactivate virtual environment:
 > ```sh
 > deactivate
 > ```
+
+Install with pip
+```sh
+pip install -r requirements.txt
+```
+> While installing, you may get `ERROR: Failed building wheel for asks`.
+> It's okay and these scripts still work.
 
 ## Usage
 
@@ -47,6 +51,8 @@ python3 measure.py
 
 Run and plot a series of measurements defined in `params.yaml` file
 > If `params.yaml` doesn't exist, `params-example.yaml` is used instead
+>
+> Note: This takes approximately 3 minutes with the default parameters!
 ```sh
 python3 run_measurements.py 
 ```
