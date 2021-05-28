@@ -15,6 +15,9 @@ Clone source code
 ```sh
 git clone https://github.com/juusoautiosalo/dtweb-measurements.git
 ```
+```sh
+cd dtweb-measurements
+```
 
 Create and activate virtual environment (recommended)
 ```sh
