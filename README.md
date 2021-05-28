@@ -12,6 +12,11 @@ Python scripts for measuring the performance of DTWeb
 
 </details>
 
+Clone source code
+```sh
+git clone https://github.com/juusoautiosalo/dtweb-measurements.git
+```
+
 Create and activate virtual environment (recommended)
 ```sh
 python3 -m venv env
