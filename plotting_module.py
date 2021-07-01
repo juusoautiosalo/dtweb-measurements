@@ -31,6 +31,9 @@ def plot_network_fetch_times(filepath: str, folderpath: str, registry_domain: st
       registry_domain: internet domain address of the DTID registry for figure title
     """
 
+    width = 2.3 # inches
+    height = 3.5 # inches
+    
     df = pd.read_csv(filepath)
 
     print(filepath)
@@ -40,7 +43,7 @@ def plot_network_fetch_times(filepath: str, folderpath: str, registry_domain: st
     max_depth = int(df["Depth"].max())
     print('Max depth: ' + str(max_depth))
 
-    fig, axes = plt.subplots(figsize=(3.5,3.5))
+    fig, axes = plt.subplots(figsize=(width,height))
 
     # Prepare data
     violindata = []
@@ -61,12 +64,12 @@ def plot_network_fetch_times(filepath: str, folderpath: str, registry_domain: st
         )
     plot['cquantiles'].set_linewidth(0.5)
     
-    axes.violinplot(dataset = violindata,
-        points=100,
-        widths=0.9,
-        showmeans=False, showextrema=False, showmedians=False,
-        # quantiles=quantiles,
-        bw_method=0.05)
+    # axes.violinplot(dataset = violindata,
+    #     points=100,
+    #     widths=0.9,
+    #     showmeans=False, showextrema=False, showmedians=False,
+    #     # quantiles=quantiles,
+    #     bw_method=0.05)
 
     # Set texts to figure
     axes.set_title('DTID registry: ' + registry_domain)
@@ -79,7 +82,8 @@ def plot_network_fetch_times(filepath: str, folderpath: str, registry_domain: st
     # plt.xticks(rotation=90)
     plt.tight_layout()
 
-    fig.savefig(os.path.join(folderpath, "fetch_times_network_violin.pdf"))
+    figurename = 'fetch_times_network_' + registry_domain + '.pdf'
+    fig.savefig(os.path.join(folderpath, figurename))
 
     return True
 
@@ -126,7 +130,7 @@ def plot_registry_fetch_times(filepath, folderpath, dtids):
     # Set texts to figure
     # axes.set_title('Fetch time')
     axes.yaxis.grid(True)
-    # axes.set_xlabel('Base number')
+    axes.set_xlabel('Domain name of registry')
     axes.set_ylabel('Time (s)')
     axes.set_ylim([0, 2])
     axes.set_xticks(range(1,len(dtids)+1))
