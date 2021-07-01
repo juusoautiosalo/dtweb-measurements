@@ -4,6 +4,7 @@ Functions for plotting measurement results of Digital Twin Web.
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
+import numpy as np
 
 # Set style for figures
 try:
@@ -111,11 +112,18 @@ def plot_registry_fetch_times(filepath, folderpath, dtids):
     violindata = []
     quantiles = []
     labels = []
+    anomalies = {}
     for dtid in dtids:
+        reg = dtid.split('/')[2]
         violindata.append(df[df.Base == dtid]["Time"].values.astype('float'))
         # quantiles.append([0,0.025,0.5,0.975,0.99])
+        anomalies[reg] = 0
+        for idx, val in enumerate(violindata[-1]):
+            if val > 2:
+                anomalies[reg] += 1
+                violindata[-1] = np.delete(violindata[-1], idx)
         quantiles.append([0,0.5,0.99])
-        labels.append(dtid.split('/')[2])
+        labels.append(reg)
 
     # Plot
     plot = axes.violinplot(dataset = violindata,
@@ -137,6 +145,18 @@ def plot_registry_fetch_times(filepath, folderpath, dtids):
     axes.set_xticklabels(labels)
     plt.xticks(rotation=90)
     plt.tight_layout()
+
+    # Add numbers of anomalies
+    anomalies_text = 'Anomalies:'
+    for key in anomalies:
+        if anomalies[key] > 0:
+            anomalies_text += '\n' + key + ': ' + str(anomalies[key])
+
+    axes.text(0.95, 0.95, anomalies_text, 
+        transform=axes.transAxes,
+        verticalalignment='top', 
+        horizontalalignment = 'right',
+        bbox=dict(facecolor='white', linewidth=0.5))
 
     fig.savefig(os.path.join(folderpath, "base_fetch_times_violin.png"))
     fig.savefig(os.path.join(folderpath, "base_fetch_times_violin.pdf"))
