@@ -112,18 +112,20 @@ def plot_registry_fetch_times(filepath, folderpath, dtids):
     violindata = []
     quantiles = []
     labels = []
+    stddev = {}
     anomalies = {}
     for dtid in dtids:
         reg = dtid.split('/')[2]
         violindata.append(df[df.Base == dtid]["Time"].values.astype('float'))
-        # quantiles.append([0,0.025,0.5,0.975,0.99])
         anomalies[reg] = 0
         for idx, val in enumerate(violindata[-1]):
             if val > 2:
                 anomalies[reg] += 1
                 violindata[-1] = np.delete(violindata[-1], idx)
+        stddev[reg] = np.std(violindata[-1])
         quantiles.append([0,0.5,0.99])
         labels.append(reg)
+    print(stddev)
 
     # Plot
     plot = axes.violinplot(dataset = violindata,
