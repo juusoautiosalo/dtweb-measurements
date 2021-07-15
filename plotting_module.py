@@ -76,8 +76,8 @@ def plot_network_fetch_times(filepath: str, folderpath: str, registry_domain: st
     axes.set_title('DTID registry: ' + registry_domain)
     axes.yaxis.grid(True)
     axes.set_xlabel('Depth in the network (steps from origin)')
-    axes.set_ylabel('Time (s)')
-    # axes.set_ylim([0, 2])
+    axes.set_ylabel('Fetch time (s)')
+    axes.set_ylim(bottom=0)
     axes.set_xticks(range(1,max_depth+2))
     axes.set_xticklabels(labels)
     # plt.xticks(rotation=90)
@@ -125,6 +125,7 @@ def plot_registry_fetch_times(filepath, folderpath, dtids):
         stddev[reg] = np.std(violindata[-1])
         quantiles.append([0,0.5,0.99])
         labels.append(reg)
+    print('Standard deviations:')
     print(stddev)
 
     # Plot
@@ -141,7 +142,7 @@ def plot_registry_fetch_times(filepath, folderpath, dtids):
     # axes.set_title('Fetch time')
     axes.yaxis.grid(True)
     axes.set_xlabel('Domain name of registry')
-    axes.set_ylabel('Time (s)')
+    axes.set_ylabel('Fetch time (s)')
     axes.set_ylim([0, 2])
     axes.set_xticks(range(1,len(dtids)+1))
     axes.set_xticklabels(labels)
